@@ -96,18 +96,26 @@ def valid_input(vals):
         flash("oops. What you typed caused an error. Please refresh the page and try again. Only numbers from 0 to 100 will work!!")
         return redirect('/')
 
+
 def cog_avg(val):
+    """
+    Using cognitive ability traditional score rather than the conversion score (IQ) to reduce a step
+    """
     try:
-        score = float(val)
-        if score <=94:
+        score = int(val)
+        if score <= 16:
             return cogni_labels[0]
-        elif score >=95 and score <= 113:
+        elif 17 <= score <= 26:
             return cogni_labels[1]
-        else:
+        elif score >= 27:
             return cogni_labels[2]
+        else:
+            flash(f"{val} is an invalid entry for cognitive score. Please type in a valid number.")
+            return None
     except:
-        flash(f"{val} is an invalid entry for cognitive score. Please type in a valid number.")
+        flash("Unknown error was encountered while obtaining cognitive score label.")
         return None
+
 
 def label_score(val):
     try:
