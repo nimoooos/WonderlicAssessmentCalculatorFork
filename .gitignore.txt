@@ -1,3 +1,4 @@
 # ignore unimportant directories
-\.idea\
-\__pycache__
+.idea/
+__pycache__/
+venv/
