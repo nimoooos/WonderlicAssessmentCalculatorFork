@@ -245,19 +245,19 @@ def max_ask_this(raw_scores):
         return None
 
 
-def min_conditions(dict):
+def min_conditions(quest_dict):
     traits_list = []
-    minimum = min(dict, key=dict.get)
-    traits = dict.items()
+    minimum = min(quest_dict, key=quest_dict.get)
+    traits = quest_dict.items()
     sorts = sorted(traits, key=value_getter)
-    if int(dict[minimum]) <= 25 < int(sorts[1][1]):
+    if int(quest_dict[minimum]) <= 25 < int(sorts[1][1]):
         traits_list.append(minimum)
         return traits_list
-    elif int(dict[minimum]) <= 25 and int(sorts[1][1]) <= 25:
+    elif int(quest_dict[minimum]) <= 25 and int(sorts[1][1]) <= 25:
         traits_list.append(minimum)
         traits_list.append(sorts[1][0])
         return traits_list
-    elif int(dict[minimum]) >= 25 and int(sorts[4][1]) < 75:
+    elif int(quest_dict[minimum]) >= 25 and int(sorts[4][1]) < 75:
         traits_list.append(minimum)
         traits_list.append(sorts[1][0])
         return traits_list
